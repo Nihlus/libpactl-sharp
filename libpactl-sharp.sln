@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.0.0
+MinimumVisualStudioVersion = 10.0.0.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libpactl_sharp", "libpactl-sharp/libpactl-sharp.csproj", "{173727D1-8E9A-484B-9582-70D0B340106B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libpactl-demo", "libpactl-demo\libpactl-demo.csproj", "{A141837A-5328-4A53-A2A0-6ACD0DF814DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{173727D1-8E9A-484B-9582-70D0B340106B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{173727D1-8E9A-484B-9582-70D0B340106B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{173727D1-8E9A-484B-9582-70D0B340106B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{173727D1-8E9A-484B-9582-70D0B340106B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A141837A-5328-4A53-A2A0-6ACD0DF814DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A141837A-5328-4A53-A2A0-6ACD0DF814DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A141837A-5328-4A53-A2A0-6ACD0DF814DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A141837A-5328-4A53-A2A0-6ACD0DF814DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
