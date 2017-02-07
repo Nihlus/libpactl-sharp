@@ -1,5 +1,5 @@
 ﻿//
-//  EPulseObject.cs
+//  ClientInfo.cs
 //
 //  Author:
 //       Jarl Gullberg <jarl.gullberg@gmail.com>
@@ -19,17 +19,16 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace PulseAudio.Object
+using System.Collections.Generic;
+
+namespace PulseAudio.Clients
 {
-	public enum EPulseObject
+	public struct ClientInfo
 	{
-		Module,
-		Sink,
-		SinkInput,
-		Source,
-		SourceInput,
-		Client,
-		Sample,
-		Card
+		public uint Index;
+		public string Name;
+		public uint OwnerModule;
+		public string Driver;
+		public Dictionary<string, string> Properties;
 	}
 }

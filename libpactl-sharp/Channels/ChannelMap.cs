@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using PulseAudio.Object;
 
-namespace PulseAudio
+namespace PulseAudio.Channels
 {
 	public struct ChannelMap
 	{

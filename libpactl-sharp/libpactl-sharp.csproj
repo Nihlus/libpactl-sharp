@@ -42,27 +42,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AudioVolume\EBaseVolumes.cs" />
+    <Compile Include="AudioVolume\Volume.cs" />
+    <Compile Include="Cards\CardInfo.cs" />
+    <Compile Include="Cards\CardPortInfo.cs" />
+    <Compile Include="Cards\CardProfileInfo.cs" />
     <Compile Include="Channels\ChannelMap.cs" />
     <Compile Include="Channels\EChannelPosition.cs" />
-    <Compile Include="ESampleFormat.cs" />
+    <Compile Include="Clients\ClientInfo.cs" />
+    <Compile Include="EPulseObject.cs" />
     <Compile Include="Events\NativePulseEvent.cs" />
     <Compile Include="Events\NativePulseEventType.cs" />
     <Compile Include="Events\PulseEventDelegates.cs" />
     <Compile Include="Formats\EFormatEncoding.cs" />
     <Compile Include="Formats\FormatInfo.cs" />
     <Compile Include="Latency.cs" />
-    <Compile Include="Object\Card.cs" />
-    <Compile Include="Object\Client.cs" />
-    <Compile Include="Object\EPulseObject.cs" />
-    <Compile Include="Object\Module.cs" />
-    <Compile Include="Object\Sample.cs" />
+    <Compile Include="Modules\ModuleInfo.cs" />
     <Compile Include="Ports\EPortAvailable.cs" />
+    <Compile Include="Ports\EPortDirection.cs" />
     <Compile Include="Pulse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EPulseCommand.cs" />
     <Compile Include="PulseEventListener.cs" />
     <Compile Include="PulseNative.cs" />
-    <Compile Include="SampleSpecification.cs" />
+    <Compile Include="Samples\ESampleFormat.cs" />
+    <Compile Include="Samples\SampleInfo.cs" />
+    <Compile Include="Samples\SampleSpecification.cs" />
     <Compile Include="Sinks\ESinkState.cs" />
     <Compile Include="Sinks\SinkInfo.cs" />
     <Compile Include="Sinks\SinkFlag.cs" />
@@ -73,7 +78,6 @@
     <Compile Include="Sources\SourceInfo.cs" />
     <Compile Include="Sources\SourceOutput.cs" />
     <Compile Include="Utility\HelperMethods.cs" />
-    <Compile Include="Volume.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

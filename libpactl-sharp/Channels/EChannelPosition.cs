@@ -1,4 +1,4 @@
-﻿namespace PulseAudio.Object
+﻿namespace PulseAudio.Channels
 {
 	public enum EChannelPosition
 	{

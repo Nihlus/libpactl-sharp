@@ -20,8 +20,10 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Collections.Generic;
+using PulseAudio.AudioVolume;
+using PulseAudio.Channels;
 using PulseAudio.Formats;
-using PulseAudio.Object;
+using PulseAudio.Samples;
 
 namespace PulseAudio.Sinks
 {

@@ -1,4 +1,4 @@
-﻿namespace PulseAudio
+﻿namespace PulseAudio.Samples
 {
 	public enum ESampleFormat
 	{
