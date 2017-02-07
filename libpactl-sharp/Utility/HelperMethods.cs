@@ -1,5 +1,5 @@
 ﻿//
-//  Source.cs
+//  Pulse.cs
 //
 //  Author:
 //       Jarl Gullberg <jarl.gullberg@gmail.com>
@@ -19,10 +19,26 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace PulseAudio
-{
-	public class Source
-	{
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
+namespace PulseAudio.Utility
+{
+	public static class HelperMethods
+	{
+		public static string ToNativeFormat(this EPulseCommand pulseCommand)
+		{
+			// First, convert it to a string.
+			string pulseCommandAsString = pulseCommand.ToString();
+
+			// Next, insert dashes between each word, skipping the first
+			pulseCommandAsString = string.Concat(pulseCommandAsString.Select(x => char.IsUpper(x) ? "-" + x : x.ToString())).TrimStart('-');
+
+			// Finally, convert it to all lower case
+			pulseCommandAsString = pulseCommandAsString.ToLowerInvariant();
+
+			return pulseCommandAsString;
+		}
 	}
 }

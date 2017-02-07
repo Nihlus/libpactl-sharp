@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libpactl_sharp", "libpactl-sharp/libpactl-sharp.csproj", "{173727D1-8E9A-484B-9582-70D0B340106B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libpactl-sharp", "libpactl-sharp/libpactl-sharp.csproj", "{173727D1-8E9A-484B-9582-70D0B340106B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libpactl-demo", "libpactl-demo\libpactl-demo.csproj", "{A141837A-5328-4A53-A2A0-6ACD0DF814DD}"
 EndProject
