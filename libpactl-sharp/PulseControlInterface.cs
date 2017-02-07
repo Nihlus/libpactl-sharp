@@ -26,7 +26,7 @@ using PulseAudio.Utility;
 
 namespace PulseAudio
 {
-	internal class PulseNative
+	public static class PulseControlInterface
 	{
 		public const string PulseControlName = "pactl";
 
@@ -41,7 +41,7 @@ namespace PulseAudio
 			ProcessStartInfo startInfo = new ProcessStartInfo
 			{
 				FileName = PulseControlName,
-				Arguments = $"--client-name=libpulse-sharp " + arguments,
+				Arguments = $"--client-name=libpactl-sharp " + arguments,
 				CreateNoWindow = true,
 				UseShellExecute = false,
 				RedirectStandardOutput = true,

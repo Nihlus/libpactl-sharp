@@ -1,0 +1,54 @@
+Sink #1
+	State: RUNNING
+	Name: alsa_output.pci-0000_00_1b.0.analog-surround-41
+	Description: Built-in Audio Analogue Surround 4.1
+	Driver: module-alsa-card.c
+	Sample Specification: s16le 5ch 44100Hz
+	Channel Map: front-left,front-right,rear-left,rear-right,lfe
+	Owner Module: 8
+	Mute: no
+	Volume: front-left: 30085 /  46% / -20,29 dB,   front-right: 30085 /  46% / -20,29 dB,   rear-left: 30085 /  46% / -20,29 dB,   rear-right: 30085 /  46% / -20,29 dB,   lfe: 30125 /  46% / -20,25 dB
+	        balance 0,00
+	Base Volume: 65536 / 100% / 0,00 dB
+	Monitor Source: alsa_output.pci-0000_00_1b.0.analog-surround-41.monitor
+	Latency: 123630 usec, configured 123809 usec
+	Flags: HARDWARE HW_MUTE_CTRL HW_VOLUME_CTRL DECIBEL_VOLUME LATENCY
+	Properties:
+		alsa.resolution_bits = "16"
+		device.api = "alsa"
+		device.class = "sound"
+		alsa.class = "generic"
+		alsa.subclass = "generic-mix"
+		alsa.name = "ALC1150 Analog"
+		alsa.id = "ALC1150 Analog"
+		alsa.subdevice = "0"
+		alsa.subdevice_name = "subdevice #0"
+		alsa.device = "0"
+		alsa.card = "1"
+		alsa.card_name = "HDA Intel PCH"
+		alsa.long_card_name = "HDA Intel PCH at 0xf7230000 irq 37"
+		alsa.driver_name = "snd_hda_intel"
+		device.bus_path = "pci-0000:00:1b.0"
+		sysfs.path = "/devices/pci0000:00/0000:00:1b.0/sound/card1"
+		device.bus = "pci"
+		device.vendor.id = "8086"
+		device.vendor.name = "Intel Corporation"
+		device.product.id = "8ca0"
+		device.product.name = "9 Series Chipset Family HD Audio Controller"
+		device.form_factor = "internal"
+		device.string = "surround41:1"
+		device.buffering.buffer_size = "54600"
+		device.buffering.fragment_size = "27300"
+		device.access_mode = "mmap+timer"
+		device.profile.name = "analog-surround-41"
+		device.profile.description = "Analogue Surround 4.1"
+		device.description = "Built-in Audio Analogue Surround 4.1"
+		alsa.mixer_name = "Realtek ALC1150"
+		alsa.components = "HDA:10ec0900,10438653,00100001"
+		module-udev-detect.discovered = "1"
+		device.icon_name = "audio-card-pci"
+	Ports:
+		analog-output-lineout: Line Out (priority: 9900, available)
+	Active Port: analog-output-lineout
+	Formats:
+		pcm

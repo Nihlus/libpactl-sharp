@@ -4,10 +4,13 @@
     <content url="file://$MODULE_DIR$/../..">
       <sourceFolder url="file://$MODULE_DIR$/../../libpactl-demo" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../libpactl-sharp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../libpactl-tests" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/../../libpactl-demo/bin" />
       <excludeFolder url="file://$MODULE_DIR$/../../libpactl-demo/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../libpactl-sharp/bin" />
       <excludeFolder url="file://$MODULE_DIR$/../../libpactl-sharp/obj" />
+      <excludeFolder url="file://$MODULE_DIR$/../../libpactl-tests/bin" />
+      <excludeFolder url="file://$MODULE_DIR$/../../libpactl-tests/obj" />
       <excludeFolder url="file://$MODULE_DIR$/../../packages" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />

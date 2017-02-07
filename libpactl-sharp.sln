@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libpactl-sharp", "libpactl-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libpactl-demo", "libpactl-demo\libpactl-demo.csproj", "{A141837A-5328-4A53-A2A0-6ACD0DF814DD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libpactl-tests", "libpactl-tests\libpactl-tests.csproj", "{3CA25314-3F7A-4BD1-8050-CC2538D9C861}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A141837A-5328-4A53-A2A0-6ACD0DF814DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A141837A-5328-4A53-A2A0-6ACD0DF814DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A141837A-5328-4A53-A2A0-6ACD0DF814DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CA25314-3F7A-4BD1-8050-CC2538D9C861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CA25314-3F7A-4BD1-8050-CC2538D9C861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CA25314-3F7A-4BD1-8050-CC2538D9C861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CA25314-3F7A-4BD1-8050-CC2538D9C861}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

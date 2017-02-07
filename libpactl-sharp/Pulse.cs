@@ -19,10 +19,22 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+using System;
+using PulseAudio.Interfaces;
+
 namespace PulseAudio
 {
 	public class Pulse
 	{
+		public T GetInfo<T>(uint index) where T : ITextParsable<T>, new()
+		{
+			T transientObject = new T();
+			throw new NotImplementedException();
+		}
 
+		public T GetInfo<T>(string name) where T : ITextParsable<T>, new()
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

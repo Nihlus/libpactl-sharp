@@ -29,16 +29,33 @@ namespace PulseAudio.Utility
 	{
 		public static string ToNativeFormat(this EPulseCommand pulseCommand)
 		{
-			// First, convert it to a string.
-			string pulseCommandAsString = pulseCommand.ToString();
+			return ToNativeFormat(pulseCommand.ToString());
+		}
 
-			// Next, insert dashes between each word, skipping the first
-			pulseCommandAsString = string.Concat(pulseCommandAsString.Select(x => char.IsUpper(x) ? "-" + x : x.ToString())).TrimStart('-');
+		public static string ToNativeFormat(this EPulseObject pulseObject)
+		{
+			return ToNativeFormat(pulseObject.ToString());
+		}
+
+		public static string ToFieldKeyFormat(this EPulseObject pulseObject)
+		{
+			return InsertSpacesBetweenWords(pulseObject.ToString());
+		}
+
+		private static string ToNativeFormat(string nonNativeString)
+		{
+			// Insert dashes between each word, skipping the first
+			nonNativeString = string.Concat(nonNativeString.Select(x => char.IsUpper(x) ? "-" + x : x.ToString())).TrimStart('-');
 
 			// Finally, convert it to all lower case
-			pulseCommandAsString = pulseCommandAsString.ToLowerInvariant();
+			nonNativeString = nonNativeString.ToLowerInvariant();
 
-			return pulseCommandAsString;
+			return nonNativeString;
+		}
+
+		private static string InsertSpacesBetweenWords(string noSpaceString)
+		{
+			return string.Concat(noSpaceString.Select(x => char.IsUpper(x) ? " " + x : x.ToString())).TrimStart(' ');
 		}
 	}
 }

@@ -38,7 +38,7 @@ namespace PulseAudio
 			{
 				StartInfo = new ProcessStartInfo
 				{
-					FileName = PulseNative.PulseControlName,
+					FileName = PulseControlInterface.PulseControlName,
 					Arguments = $"--client-name=libpulse-sharp {EPulseCommand.Subscribe.ToNativeFormat()}",
 					CreateNoWindow = true,
 					UseShellExecute = false,
@@ -94,6 +94,7 @@ namespace PulseAudio
 
 		private void OnNativePulseEvent(object sender, DataReceivedEventArgs e)
 		{
+			// TODO: Implement events
 			NativePulseEvent pulseEvent;
 			if (NativePulseEvent.TryParse(e.Data, out pulseEvent))
 			{
