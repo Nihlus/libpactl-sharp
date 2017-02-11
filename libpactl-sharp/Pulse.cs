@@ -20,19 +20,66 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System;
+using System.Collections.Generic;
+using PulseAudio.Cards;
+using PulseAudio.Clients;
 using PulseAudio.Interfaces;
+using PulseAudio.Modules;
+using PulseAudio.Samples;
+using PulseAudio.Sinks;
+using PulseAudio.Sources;
 
 namespace PulseAudio
 {
-	public class Pulse
+	public static class Pulse
 	{
-		public T GetInfo<T>(uint index) where T : ITextParsable<T>, new()
+		public static T GetInfo<T>(uint index) where T : ITextParsable, new()
 		{
 			T transientObject = new T();
 			throw new NotImplementedException();
 		}
 
-		public T GetInfo<T>(string name) where T : ITextParsable<T>, new()
+		public static T GetInfo<T>(string name) where T : ITextParsable, new()
+		{
+			throw new NotImplementedException();
+		}
+
+		public static List<ModuleInfo> GetModules()
+		{
+			throw new NotImplementedException();
+		}
+
+		public static List<SinkInfo> GetSinks()
+		{
+			throw new NotImplementedException();
+		}
+
+		public static List<SourceInfo> GetSources()
+		{
+			throw new NotImplementedException();
+		}
+
+		public static List<SinkInputInfo> GetSinkInputs()
+		{
+			throw new NotImplementedException();
+		}
+
+		public static List<SourceOutputInfo> GetSourceOutputs()
+		{
+			throw new NotImplementedException();
+		}
+
+		public static List<ClientInfo> GetClients()
+		{
+			throw new NotImplementedException();
+		}
+
+		public static List<SampleInfo> GetSamples()
+		{
+			throw new NotImplementedException();
+		}
+
+		public static List<CardInfo> GetCards()
 		{
 			throw new NotImplementedException();
 		}

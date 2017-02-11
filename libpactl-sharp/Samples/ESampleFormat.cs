@@ -15,6 +15,6 @@
 		Signed24PCMPackedLittleEndian,
 		Signed24PCMPackedBigEndian,
 		Signed24PCMInLSBOf32LittleEndian,
-		Signed24PCMInLSBOf32BugEndian,
+		Signed24PCMInLSBOf32BigEndian,
 	}
 }

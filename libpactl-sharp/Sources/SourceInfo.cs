@@ -20,22 +20,30 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Collections.Generic;
+using System.IO;
 using PulseAudio.AudioVolume;
 using PulseAudio.Channels;
 using PulseAudio.Formats;
+using PulseAudio.Interfaces;
+using PulseAudio.Modules;
 using PulseAudio.Samples;
 using PulseAudio.Sinks;
 
 namespace PulseAudio.Sources
 {
-	public struct SourceInfo
+	public struct SourceInfo : ITextParsable
 	{
 		public string Name;
 		public uint Index;
 		public string Description;
 		public SampleSpecification SampleSpecification;
 		public ChannelMap ChannelMap;
-		public uint OwnerModule;
+		public uint OwnerModuleID;
+		public ModuleInfo OwnerModule
+		{
+			get { return Pulse.GetInfo<ModuleInfo>(this.OwnerModuleID); }
+		}
+
 		public Dictionary<EChannelPosition, Volume> ChannelVolumes;
 		public bool Muted;
 		public uint MonitorOfSink;
@@ -58,5 +66,23 @@ namespace PulseAudio.Sources
 		public SinkPortInfo ActivePort;
 		public byte SupportedFormatCount;
 		public List<FormatInfo> SupportedFormats;
+
+		public bool TryParseTextData(IEnumerable<string> objectInformation)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public bool TryParseTextData(Stream objectInformation)
+		{
+			using (TextReader tr = new StreamReader(objectInformation))
+			{
+				return TryParseTextData(tr);
+			}
+		}
+
+		public bool TryParseTextData(TextReader tr)
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }

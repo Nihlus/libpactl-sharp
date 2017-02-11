@@ -73,12 +73,12 @@
     <Compile Include="Sinks\ESinkState.cs" />
     <Compile Include="Sinks\SinkInfo.cs" />
     <Compile Include="Sinks\SinkFlag.cs" />
-    <Compile Include="Sinks\SinkInput.cs" />
+    <Compile Include="Sinks\SinkInputInfo.cs" />
     <Compile Include="Sinks\SinkPortInfo.cs" />
     <Compile Include="Sources\ESourceState.cs" />
     <Compile Include="Sources\SourceFlag.cs" />
     <Compile Include="Sources\SourceInfo.cs" />
-    <Compile Include="Sources\SourceOutput.cs" />
+    <Compile Include="Sources\SourceOutputInfo.cs" />
     <Compile Include="Utility\HelperMethods.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

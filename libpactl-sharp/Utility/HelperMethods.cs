@@ -22,11 +22,80 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PulseAudio.Samples;
 
 namespace PulseAudio.Utility
 {
 	public static class HelperMethods
 	{
+		public static ESampleFormat MapNativeSampleFormatName(string nativeSampleFormatName)
+		{
+			if (string.IsNullOrEmpty(nativeSampleFormatName))
+			{
+				throw new ArgumentNullException(nameof(nativeSampleFormatName));
+			}
+
+			switch (nativeSampleFormatName.ToLowerInvariant())
+			{
+				case "u8":
+				{
+					return ESampleFormat.Unsigned8PCM;
+				}
+				case "alaw":
+				{
+					return ESampleFormat.ALaw8;
+				}
+				case "ulaw":
+				{
+					return ESampleFormat.MuLaw8;
+				}
+				case "s16le":
+				{
+					return ESampleFormat.Signed16PCMLittleEndian;
+				}
+				case "s16be":
+				{
+					return ESampleFormat.Signed16PCMBigEndian;
+				}
+				case "float32le":
+				{
+					return ESampleFormat.Float32LittleEndian;
+				}
+				case "float32be":
+				{
+					return ESampleFormat.Float32BigEndian;
+				}
+				case "s32le":
+				{
+					return ESampleFormat.Signed32PCMLittleEndian;
+				}
+				case "s32be":
+				{
+					return ESampleFormat.Signed32PCMBigEndian;
+				}
+				case "s24le":
+				{
+					return ESampleFormat.Signed24PCMPackedLittleEndian;
+				}
+				case "s24be":
+				{
+					return ESampleFormat.Signed24PCMPackedBigEndian;
+				}
+				case "s24_32le":
+				{
+					return ESampleFormat.Signed24PCMInLSBOf32LittleEndian;
+				}
+				case "s24_32be":
+				{
+					return ESampleFormat.Signed24PCMInLSBOf32BigEndian;
+				}
+				default:
+				{
+					return ESampleFormat.Invalid;
+				}
+			}
+		}
+
 		public static string ToNativeFormat(this EPulseCommand pulseCommand)
 		{
 			return ToNativeFormat(pulseCommand.ToString());
@@ -51,6 +120,31 @@ namespace PulseAudio.Utility
 			nonNativeString = nonNativeString.ToLowerInvariant();
 
 			return nonNativeString;
+		}
+
+		public static string ToManagedFormat(string nonManagedString)
+		{
+			if (string.IsNullOrEmpty(nonManagedString))
+			{
+				throw new ArgumentNullException(nameof(nonManagedString));
+			}
+
+			char[] transientArray = nonManagedString.ToCharArray();
+			// Capitalize the first letter
+			transientArray[0] = char.ToUpperInvariant(transientArray[0]);
+
+			// Capitalize letters after dashes
+			for (int i = 0; i < transientArray.Length; ++i)
+			{
+				if (transientArray[i] == '-' && (i + 1) < transientArray.Length)
+				{
+					transientArray[i + 1] = char.ToUpperInvariant(transientArray[i + 1]);
+				}
+			}
+
+			transientArray = transientArray.Where(c => c != '-').ToArray();
+
+			return new string(transientArray);
 		}
 
 		private static string InsertSpacesBetweenWords(string noSpaceString)

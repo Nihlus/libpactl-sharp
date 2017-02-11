@@ -20,15 +20,37 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Collections.Generic;
+using System.IO;
+using PulseAudio.Interfaces;
+using PulseAudio.Modules;
 
 namespace PulseAudio.Clients
 {
-	public struct ClientInfo
+	public struct ClientInfo : ITextParsable
 	{
 		public uint Index;
 		public string Name;
-		public uint OwnerModule;
+		public uint OwnerModuleID;
+
+		public ModuleInfo OwnerModule
+		{
+			get { return Pulse.GetInfo<ModuleInfo>(this.OwnerModuleID); }
+		}
+
 		public string Driver;
 		public Dictionary<string, string> Properties;
+
+		public bool TryParseTextData(Stream objectInformation)
+		{
+			using (TextReader tr = new StreamReader(objectInformation))
+			{
+				return TryParseTextData(tr);
+			}
+		}
+
+		public bool TryParseTextData(TextReader tr)
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }

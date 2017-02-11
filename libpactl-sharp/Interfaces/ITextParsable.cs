@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 
 namespace PulseAudio.Interfaces
 {
-	public interface ITextParsable<out T>
+	public interface ITextParsable
 	{
-		bool PostParse(IEnumerable<string> objectInformation);
+		bool TryParseTextData(Stream objectInformation);
+		bool TryParseTextData(TextReader tr);
 	}
 }

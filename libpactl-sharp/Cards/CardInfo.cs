@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using PulseAudio.Interfaces;
 
 namespace PulseAudio.Cards
 {
-	public struct CardInfo
+	public struct CardInfo : ITextParsable
 	{
 		public uint Index;
 		public string Name;
@@ -14,5 +16,18 @@ namespace PulseAudio.Cards
 		public List<CardPortInfo> Ports;
 		public List<CardProfileInfo> Profiles;
 		public CardProfileInfo ActiveProfile;
+
+		public bool TryParseTextData(Stream objectInformation)
+		{
+			using (TextReader tr = new StreamReader(objectInformation))
+			{
+				return TryParseTextData(tr);
+			}
+		}
+
+		public bool TryParseTextData(TextReader tr)
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }

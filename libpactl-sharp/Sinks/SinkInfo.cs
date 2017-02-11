@@ -20,25 +20,40 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 using System.Collections.Generic;
+using System.IO;
 using PulseAudio.AudioVolume;
+using PulseAudio.Cards;
 using PulseAudio.Channels;
 using PulseAudio.Formats;
+using PulseAudio.Interfaces;
+using PulseAudio.Modules;
 using PulseAudio.Samples;
+using PulseAudio.Sources;
 
 namespace PulseAudio.Sinks
 {
-	public struct SinkInfo
+	public struct SinkInfo : ITextParsable
 	{
 		public string Name;
 		public uint Index;
 		public string Description;
 		public SampleSpecification SampleSpecification;
 		public ChannelMap ChannelMap;
-		public int OwnerModule;
-		public bool Muted;
+		public uint OwnerModuleID;
+		public ModuleInfo OwnerModule
+		{
+			get { return Pulse.GetInfo<ModuleInfo>(this.OwnerModuleID); }
+		}
+
 		public Dictionary<EChannelPosition, Volume> ChannelVolumes;
-		public uint MonitorSource;
+		public bool IsMuted;
+		public uint MonitorSourceID;
 		public string MonitorSourceName;
+
+		public SourceInfo MonitorSource
+		{
+			get { return Pulse.GetInfo<SourceInfo>(this.MonitorSourceID); }
+		}
 
 		/// <summary>
 		/// Combined latency field for both actual and configured latency of the sink.
@@ -51,11 +66,45 @@ namespace PulseAudio.Sinks
 		public Volume BaseVolume;
 		public ESinkState State;
 		public uint VolumeSteps;
-		public uint Card;
+		public uint CardID;
+
+		public CardInfo Card
+		{
+			get { return Pulse.GetInfo<CardInfo>(this.CardID); }
+		}
 		public uint PortCount;
 		public List<SinkPortInfo> AvailablePorts;
 		public SinkPortInfo ActivePort;
 		public byte SupportedFormatCount;
 		public List<FormatInfo> SupportedFormats;
+
+		public bool TryParseTextData(Stream objectInformation)
+		{
+			using (TextReader tr = new StreamReader(objectInformation))
+			{
+				return TryParseTextData(tr);
+			}
+		}
+
+		// TODO: Catch exceptions and return false
+		public bool TryParseTextData(TextReader tr)
+		{
+			int objectIndex = tr.ReadObjectIndex();
+			if (objectIndex < 0)
+			{
+				return false;
+			}
+
+			this.Index = (uint)objectIndex;
+			this.State = tr.ReadKeyValuePairEnum<ESinkState>("State");
+			this.Name = tr.ReadKeyValuePairString("Name");
+			this.Description = tr.ReadKeyValuePairString("Description");
+			this.Driver = tr.ReadKeyValuePairString("Driver");
+			this.SampleSpecification = tr.ReadKeyValuePairParsable<SampleSpecification>("Sample Specification");
+			this.ChannelMap = tr.ReadKeyValuePairParsable<ChannelMap>("Channel Map");
+			this.OwnerModuleID = (uint)tr.ReadKeyValuePairIntegerData("Owner Module");
+
+			return true;
+		}
 	}
 }
